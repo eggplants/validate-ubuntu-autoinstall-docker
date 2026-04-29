@@ -9,6 +9,13 @@ WORKDIR /subiquity
 
 RUN \
   sed -i 's/sudo //' Makefile && \
+  sed -i \
+    -e '/^import os$/a import zoneinfo' \
+    -e '/^    if not active_timedatectl():$/,/^        return special_keys$/d' \
+    -e '/^    tzcmd = \["timedatectl", "list-timezones"\]$/d' \
+    -e '/^    list_tz_out = subprocess\.check_output(tzcmd/d' \
+    -e 's/^    real_tzs = list_tz_out\.splitlines()$/    real_tzs = sorted(zoneinfo.available_timezones())/' \
+    subiquity/server/controllers/timezone.py && \
   make install_deps && \
   rm -rf /var/lib/apt/lists/*
 
