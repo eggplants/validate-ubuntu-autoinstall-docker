@@ -18,10 +18,15 @@ Validate Ubuntu Server Autoinstall Configuration on Docker
 
 <https://canonical-subiquity.readthedocs-hosted.com/en/latest/howto/autoinstall-validation.html>
 
-## Build
+## Install
 
 ```bash
+# build in local
 docker build -t validate-ubuntu-autoinstall .
+
+# pull from ghcr
+docker pull ghcr.io/eggplants/validate-ubuntu-autoinstall-docker
+docker tag ghcr.io/eggplants/validate-ubuntu-autoinstall-docker validate-ubuntu-autoinstall
 ```
 
 ## Use
