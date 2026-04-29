@@ -39,5 +39,5 @@ docker run --rm -it validate-ubuntu-autoinstall -h
 docker run --rm -it -v path/to/autoinstall.yaml:/autoinstall.yaml validate-ubuntu-autoinstall /autoinstall.yaml
 
 # validate from stdin
-cat autoinstall.yaml | docker run --rm -i -a stdin -a stderr -a stdout validate-ubuntu-autoinstall
+cat autoinstall.yaml | docker run --rm -i validate-ubuntu-autoinstall
 ```
