@@ -1,0 +1,16 @@
+- id: validate-ubuntu-autoinstall
+  name: validate-ubuntu-autoinstall
+  description: Run Autoinstall Validation via cloud-config
+  minimum_pre_commit_version: 2.1.0
+  entry: ghcr.io/eggplants/validate-ubuntu-autoinstall-docker
+  language: docker_image
+  files: '^autoinstall.ya?ml$'
+  args: ["-v"]
+- id: validate-ubuntu-autoinstall-no-cloud
+  name: validate-ubuntu-autoinstall-no-cloud
+  description: Run Autoinstall Validation via the installation media
+  minimum_pre_commit_version: 2.1.0
+  entry: ghcr.io/eggplants/validate-ubuntu-autoinstall-docker
+  language: docker_image
+  files: '^autoinstall.ya?ml$'
+  args: ["-v", "--no-expect-cloudconfig"]
