@@ -1,9 +1,9 @@
-FROM ubuntu:resolute@sha256:3595d7fc4286a33fad0fd853a4063e654287a9c3787437d7937c94ca3f7a804e
+FROM ubuntu:resolute@sha256:f144425ff09be612d6d9ad965196e9cdc23dae1f42110a8a11a3e9a8198759f7
 
 RUN \
   apt-get update && \
   apt-get install -y git make && \
-  git clone https://github.com/canonical/subiquity.git --single-branch --depth 1 -b 26.04
+  git clone https://github.com/canonical/subiquity.git --single-branch --depth 1 -b 26.10
 
 WORKDIR /subiquity
 
